@@ -7,8 +7,8 @@ import json
 import time
 import mytool
 # client_id 为官网获取的AK， client_secret 为官网获取的SK
-client_id = "MDovBxu75YTZmqFLUHo17dY7"
-client_secret = "4zLRedG52jrO6reW0cTpwY2adxGcN4ye "
+client_id = ""
+client_secret = " "
 
 
 def get_token():
