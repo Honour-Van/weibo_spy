@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import random
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 import json
 import time
@@ -120,6 +118,9 @@ while True:
             print(fail_list)
             if len(fail_list) > 10:
                 raise
+    except KeyboardInterrupt:
+        print("next_time:", fail_list[0])
+        break
     except:
         print("safer awful")
         start_date = fail_list[0]

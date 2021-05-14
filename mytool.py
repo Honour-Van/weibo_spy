@@ -1,5 +1,5 @@
 class progress_bar():
-    def __init__(self, workload, length) -> None:
+    def __init__(self, workload, length=100) -> None:
         self._workload = workload
         self.stage_d = int(workload/length)
         self.stage_c = 0

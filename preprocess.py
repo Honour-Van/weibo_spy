@@ -1,17 +1,20 @@
 import json
-
+import mytool
 date_list = []
 with open('./data/date.json', 'r', encoding='utf-8') as f:
     date_list = json.load(f)
 
 l = len(date_list)
+
+
+pb = mytool.progress_bar(l)
 for i in range(l-1):
     y = date_list[i]['year']
     m = date_list[i]['month']
     d = date_list[i]['day']
     day_sentences = []
     for h in range(24):
-        with open(f'./out/{y}-{str(int(m)+1)}-{str(d+1)}-{h}.txt', 'w', encoding='utf-8') as f:
+        with open(f'./out/{y}-{str(int(m)+1)}-{str(d+1)}-{h}.txt', 'r', encoding='utf-8') as f:
             while True:
                 line = f.readline()
                 if line == '':
@@ -24,6 +27,7 @@ for i in range(l-1):
                 else:
                     if line not in day_sentences:
                         day_sentences.append(line)
+    pb.progress(i)
 
     with open(f'./out1/{y}-{str(int(m)+1)}-{str(d+1)}.txt', 'w', encoding='utf-8') as f:
         for line in day_sentences:
